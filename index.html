@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PooreYouTuber Tools | Premium Content & Utility Suite</title>
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <meta name="description" content="Access a premium suite of free online tools including YouTube multi-viewers, thumbnail creators, PDF converters, and image resizers. Fast, private, and secure." />
+    
+    <style>
+        :root {
+            --primary-red: #e63946;
+            --dark-red: #c1272d;
+            --bg-grey: #121212;
+            --card-grey: #1e1e1e;
+            --border-grey: #333333;
+            --text-light: #f1f1f1;
+            --text-muted: #b0b0b0;
+        }
+
+        body.light-mode {
+            --bg-grey: #f4f4f4;
+            --card-grey: #ffffff;
+            --border-grey: #dddddd;
+            --text-light: #1a1a1a;
+            --text-muted: #555555;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-grey);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        /* --- Header --- */
+        header {
+            background: var(--card-grey);
+            border-bottom: 3px solid var(--primary-red);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo { height: 40px; border-radius: 4px; }
+        .home-link { 
+            color: var(--primary-red); 
+            font-size: 24px; 
+            font-weight: 800; 
+            text-decoration: none; 
+            letter-spacing: -0.5px;
+        }
+
+        nav a { 
+            color: var(--text-light); 
+            text-decoration: none; 
+            margin-left: 20px; 
+            font-size: 14px; 
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary-red); }
+
+        #theme-toggle {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        /* --- Main Layout --- */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+
+        h1 { font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; }
+
+        .section-heading {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-heading::after {
+            content: "";
+            height: 2px;
+            background: var(--border-grey);
+            flex-grow: 1;
+        }
+
+        /* --- Tools Grid --- */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: var(--card-grey);
+            border: 1px solid var(--border-grey);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-red);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .tool-card h3 { font-size: 1.1rem; margin-bottom: 20px; min-height: 50px; }
+
+        .btn-open {
+            background: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn-open:hover { background: var(--dark-red); }
+
+        /* --- Description Section --- */
+        .seo-content {
+            background: var(--card-grey);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 60px;
+            border: 1px solid var(--border-grey);
+        }
+
+        .seo-content h2 { color: var(--primary-red); margin-top: 0; }
+        .seo-content p { color: var(--text-muted); margin-bottom: 20px; }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 80px;
+            padding: 40px 20px;
+            background: var(--card-grey);
+            text-align: center;
+            border-top: 1px solid var(--border-grey);
+        }
+
+        footer a { color: var(--primary-red); text-decoration: none; margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            nav a { margin: 0 10px; }
+            .tools-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html" class="home-link">PooreYouTuber</a>
+        </div>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="Articals.html">Articles</a>
+            <a href="contact.html">Contact</a>
+            <button id="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Advanced Creator Tools</h1>
+        <p class="subtitle">Fast, Secure, and Professional Utilities for Digital Growth</p>
+
+        <h2 class="section-heading">🔥 YouTube Ecosystem</h2>
+        <div class="tools-grid">
+            <div class="tool-card"><h3>Multi YouTube Live Viewer</h3><a href="multi-live.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>YouTube Shorts Preview</h3><a href="youtube-short-preview.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Video Analytics Checker</h3><a href="youtube-view-checker.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Multi-Browser Instance</h3><a href="multi-browser.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>High-Res Thumbnail Tool</h3><a href="youtube-thumbnail.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>SEO Tags Generator</h3><a href="youtube-tool.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Channel Performance Audit</h3><a href="youtube-channel-audit.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Integrated Multi-View</h3><a href="multi-view.html" class="btn-open">Launch Tool</a></div>
+        </div>
+
+        <h2 class="section-heading">⚙️ Web & Media Utilities</h2>
+        <div class="tools-grid">
+            <div class="tool-card"><h3>Smart Image Resizer</h3><a href="image-resize.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Instagram Growth Suite</h3><a href="instagram.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>AI Caption Architect</h3><a href="insta-tool.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Photo to PDF Pro</h3><a href="photo-to-pdf.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>PDF to Image Converter</h3><a href="pdf-to-image.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Website Optimization</h3><a href="website-booster.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Ad Placement Tester 01</h3><a href="website-ads1.html" class="btn-open">Launch Tool</a></div>
+            <div class="tool-card"><h3>Ad Placement Tester 02</h3><a href="website-ads2.html" class="btn-open">Launch Tool</a></div>
+        </div>
+
+        <div class="seo-content">
+            <h2>Professional Digital Utilities for Modern Creators</h2>
+            <p><strong>PooreYouTuber Tools</strong> provides a sophisticated collection of browser-based applications designed to streamline the workflow of content creators, freelancers, and digital professionals. Our platform eliminates the need for expensive software by offering high-quality utilities—ranging from YouTube optimization to complex document conversions—completely free of charge.</p>
+
+            <p><strong>Optimize Your Content Strategy:</strong> Whether you are an aspiring creator or an established influencer, our specialized YouTube tools offer unmatched utility. Utilize the <em>Multi-Browser</em> and <em>Live Viewer</em> to manage your streams, or leverage our <em>SEO Tags Generator</em> and <em>Channel Audit</em> tools to ensure your content reaches the widest possible audience. Our <em>Thumbnail Creator</em> ensures your videos maintain a high click-through rate with professional-grade visuals.</p>
+
+            <p><strong>Privacy-First Media Processing:</strong> We prioritize your data security. Unlike traditional converters, our PDF and Image tools process files locally within your browser. This means your sensitive documents and private photos are never uploaded to our servers, ensuring 100% confidentiality and rapid processing speeds.</p>
+
+            <p><strong>No Limits, No Subscriptions:</strong> Experience the freedom of unlimited access. PooreYouTuber is committed to providing a clean, user-friendly environment without the barriers of mandatory sign-ups or hidden fees. Our goal is to empower your digital journey through simplicity and efficiency.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PooreYouTuber. Engineered for Performance.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="disclaimer.html">Terms of Service</a> | 
+            <a href="contact.html">Support</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('theme-toggle');
+            
+            if (body.classList.contains('dark-mode')) {
+                body.classList.replace('dark-mode', 'light-mode');
+                btn.textContent = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.replace('light-mode', 'dark-mode');
+                btn.textContent = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize theme on load
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if(savedTheme === 'light') {
+                document.body.classList.replace('dark-mode', 'light-mode');
+                document.getElementById('theme-toggle').textContent = '🌙 Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>
